@@ -1,0 +1,23 @@
+# Default values for flask-app.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+# This will set the replicaset count more information can be found here: https://kubernetes.io/docs/concepts/workloads/controllers/replicaset/
+replicaCount: 1
+
+flaskApp:
+  image:
+    repository: pawarg1911/flask-app
+    tag: latest
+  service:
+    type: ClusterIP
+    port: 5000
+
+mysql:
+  image:
+    repository: mysql
+    tag: 5.7
+  rootPassword: rootpassword
+  user: flaskuser
+  password: flaskpassword
+  database: flaskdb
